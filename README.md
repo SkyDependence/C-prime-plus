@@ -219,20 +219,21 @@ void power1() {
 10. code:
 ```c
 void to_base_n(int a, int b) {
-	while (b < 2 || b>10) {
+	while (b < 2 || b>10) {  // 检查进制是否在2~10之间，如果不是则要求重新输入
 		printf("Your number is invaild!\n");
 		printf("Please enter again:");
-		while (getchar() != '\n')continue;
-		scanf_s("%d%d", &a, &b);
+		while (getchar() != '\n')continue;  // 清除输入缓存
+		scanf_s("%d%d", &a, &b);  // 获取新的输入
 	}
-	int c = a % b;
-	int d = a / b;
-	if (d >= b)
+	int c = a % b;  // 取余数
+	int d = a / b;  // 取商
+	if (d >= b)  // 如果商大于等于进制，则递归调用本函数
 		to_base_n(d, b);
-	else
+	else  // 如果商小于进制，则直接输出商
 		printf("%d", d);
-	printf("%d", c);
+	printf("%d", c);  // 输出余数
 }
+
 ```
 11. code:
 ```c
