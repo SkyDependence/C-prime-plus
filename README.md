@@ -236,19 +236,21 @@ void to_base_n(int a, int b) {
 ```
 11. code:
 ```c
+// 这里是计算斐波那契数列的函数，参数i表示要计算的数列项数
 int Fibonacci(int i) {
-	int sum = 2, f1 = 1, f2;
-	if (i == 0)
-		return 0;
-	else if (i <= 2)
-		return 1;
-	else {
-		for (int j = 3; j < i; j++) {
-			f2 = sum;
-			sum += f1;
-			f1 = f2;
-		}
-	}
-	return sum;
+    int sum = 2, f1 = 1, f2;  // 定义三个变量，分别表示当前项的值，上一项的值，和上上一项的值
+    if (i == 0)  // 如果要计算的项数为0，直接返回0
+        return 0;
+    else if (i <= 2)  // 如果要计算的项数小于等于2，直接返回1
+        return 1;
+    else {  // 如果要计算的项数大于2
+        for (int j = 3; j < i; j++) {  // 从第三项开始循环计算每一项的值
+            f2 = sum;  // 保存上上一项的值
+            sum += f1;  // 计算当前项的值
+            f1 = f2;  // 将上一项的值更新为上上一项的值
+        }
+    }
+    return sum;  // 返回计算出的数列值
 }
+
 ```
