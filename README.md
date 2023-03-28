@@ -169,3 +169,86 @@ int main() {
 }
 
 ```
+8. code：
+```c
+void power() {
+	double n;
+	int p;
+	while (scanf_s("%lf%d", &n, &p) == 2) {
+		if (n == 0) {
+				if (p == 0)
+					printf("0的0次幂未定义！因此处理为：");
+				else {
+					printf("%d\n",0);
+					continue;
+				}
+			}
+		double pow = 1;
+		for (int i = 1; i <= p; i++)
+			pow *= n;
+		printf("%lf\n",pow);
+	}
+	printf("Done\n");
+}
+```
+9. code:
+```c
+void power1() {
+	double n;
+	int p;
+	if (scanf_s("%lf%d", &n, &p) == 2) {
+		if (n == 0) {
+			if (p == 0)
+				printf("0的0次幂未定义！因此处理为：1");
+			else {
+				printf("%d\n", 0);
+				power1();
+			}
+		}
+		else {
+			double pow = 1;
+			for (int i = 1; i <= p; i++)
+				pow *= n;
+			printf("%lf\n", pow);
+			power1();
+		}
+	}
+	printf("Done\n");
+}
+```
+10. code:
+```c
+void to_base_n(int a, int b) {
+	while (b < 2 || b>10) {
+		printf("Your number is invaild!\n");
+		printf("Please enter again:");
+		while (getchar() != '\n')continue;
+		scanf_s("%d%d", &a, &b);
+	}
+	int c = a % b;
+	int d = a / b;
+	if (d >= b)
+		to_base_n(d, b);
+	else
+		printf("%d", d);
+	printf("%d", c);
+}
+```
+11. code:
+```c
+int Fibonacci(int i) {
+	int sum = 2, f1 = 1, f2;
+	if (i == 0)
+		return 0;
+	else if (i <= 2)
+		return 1;
+	else {
+		for (int j = 3; j < i; j++) {
+			f2 = sum;
+			sum += f1;
+			f1 = f2;
+		}
+	}
+	return sum;
+}
+```
